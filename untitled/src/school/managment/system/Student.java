@@ -94,6 +94,26 @@ public class Student {
     }
 
 
+    /** Pays the selected amount as fees
+     * to school.
+     * @param fees
+     */
+    public void payFees(int fees) {
+        feesPaid += fees;
+        School.updateTotalMoneyEarned(feesPaid);
+
+    }
+
+
+    /**
+     *
+     * @return the remaining fees
+     */
+    public int getRemainingFees() {
+        return feesTotal - feesPaid;
+    }
+
+
 
 
 
