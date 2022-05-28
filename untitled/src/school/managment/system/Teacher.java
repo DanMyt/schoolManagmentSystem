@@ -17,7 +17,6 @@ public class Teacher {
      * @param name name of the teacher
      * @param salary salary of the teacher
      */
-
     public Teacher(int id, String name, int salary) {
         this.id = id;
         this.name = name;
@@ -28,7 +27,6 @@ public class Teacher {
      * return the id of the teacher
      * @return
      */
-
     public int getId() {
         return id;
     }
@@ -37,7 +35,6 @@ public class Teacher {
      * return the name of the teacher
      * @return
      */
-
     public String getName() {
         return name;
     }
@@ -46,8 +43,17 @@ public class Teacher {
      *
      * @return the salary of the teacher
      */
-
     public int getSalary() {
         return salary;
     }
+
+    /**
+     * Set the salary
+     * @param salary
+     */
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+
 }

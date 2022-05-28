@@ -51,6 +51,53 @@ public class Student {
     }
 
 
+    /**
+     *
+     * @return id of the student
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @return name of the student
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @return grade of the student
+     */
+    public int getGrade() {
+        return grade;
+    }
+
+
+    /**
+     *
+     * @return paid fees of the student
+     */
+    public int getFeesPaid() {
+        return feesPaid;
+    }
+
+
+    /**
+     *
+     * @return the total fees of the student
+     */
+    public  int getFeesTotal() {
+        return feesTotal;
+    }
+
+
+
+
+
+
 
 
 }
