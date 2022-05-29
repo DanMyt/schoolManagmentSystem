@@ -10,7 +10,7 @@ public class View {
 
     private Scanner scanner = new Scanner(System.in);
     private final Register registerAccount = new Register();
-    public final Input input = new Input();
+    private final Input input = new Input();
 
     public void run() {
         while (true) {
