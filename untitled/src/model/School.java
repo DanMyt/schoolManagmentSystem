@@ -1,4 +1,4 @@
-package school.managment.system;
+package model;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class School {
      * @param teachers list of teachers in the school
      * @param students list of students in the school
      */
-    School(List<Teacher> teachers, List<Student> students) {
+    public School(List<Teacher> teachers, List<Student> students) {
         this.teachers = teachers;
         this.students = students;
         totalMoneyEarned = 0;

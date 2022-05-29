@@ -1,4 +1,6 @@
-package school.managment.system;
+package model;
+
+import model.School;
 
 /**
  * This class is responsible for keeping the track
@@ -9,6 +11,7 @@ public class Teacher {
 
     private int id;
     private String name;
+    private String secondName;
     private int salary;
     private int salaryEarned;
 
@@ -18,12 +21,15 @@ public class Teacher {
      * @param name name of the teacher
      * @param salary salary of the teacher
      */
-    public Teacher(int id, String name, int salary) {
+    public Teacher(int id, String name,String secondName, int salary) {
         this.id = id;
         this.name = name;
+        this.secondName = secondName;
         this.salary = salary;
         this.salaryEarned = 0;
     }
+
+    public  Teacher() {}
 
     /**
      * return the id of the teacher
@@ -33,10 +39,15 @@ public class Teacher {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     /**
      * return the name of the teacher
      * @return
      */
+
     public String getName() {
         return name;
     }
@@ -64,6 +75,18 @@ public class Teacher {
     public void receiveSalary(int salary) {
         salaryEarned += salary;
         School.updateTotalMoneySpend(salaryEarned);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public  void setSalaryEarned(int salaryEarned) {
+        this.salaryEarned = salaryEarned;
     }
 
 

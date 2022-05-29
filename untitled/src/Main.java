@@ -1,11 +1,10 @@
-package school.managment.system;
 
-import java.util.ArrayList;
-import java.util.List;
+import view.View;
 
 public class Main {
     public static void main(String[] args) {
-        Teacher Lizzy = new Teacher(1, "Lizzy", 500);
+        new View().run();
+        /** Teacher Lizzy = new Teacher(1, "Lizzy", 500);
         Teacher Melissa = new Teacher(2, "Melissa", 700);
         Teacher Vanderhorn = new Teacher(3, "Vanderhorn", 600);
         List<Teacher> teachersList = new ArrayList<>();
@@ -25,6 +24,6 @@ public class Main {
         System.out.println("Gph has earned " +gph.getTotalMoneyEarned());
 
         Tamara.payFees(5000);
-        System.out.println("Gph has earned " +gph.getTotalMoneyEarned());
+        System.out.println("Gph has earned " +gph.getTotalMoneyEarned()); **/
     }
 }
