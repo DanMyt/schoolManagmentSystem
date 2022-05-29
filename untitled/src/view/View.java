@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class View {
 
     private Scanner scanner = new Scanner(System.in);
+    private final Register registerAccount = new Register();
+    public final Input input = new Input();
 
     public void run() {
         while (true) {
@@ -53,8 +55,8 @@ public class View {
             choice = scanner.next().charAt(0);
             if (choice == 'A' && teacherOrStudent == 'A') logInStudent();
             else if(choice == 'A' && teacherOrStudent == 'B') logInTeacher();
-            else if (choice == 'B' && teacherOrStudent == 'A') registerStudent();
-            else if (choice == 'B' && teacherOrStudent == 'B') registerTeacher();
+            else if (choice == 'B' && teacherOrStudent == 'A') this.registerAccount.registerStudent();
+            else if (choice == 'B' && teacherOrStudent == 'B') this.registerAccount.registerTeacher();
             else {
                 System.out.println("Non valid input");
                 this.registerOrLogIn(teacherOrStudent);
@@ -75,45 +77,4 @@ public class View {
 
     }
 
-
-    public void registerStudent() {
-
-        Student newAccount = new Student();
-
-        this.scanner.nextLine();
-
-        newAccount.setName(this.enterChar("First Name"));
-        newAccount.setId(1);
-        newAccount.setSecondName(this.enterChar("Second Name"));
-        newAccount.setFeesPaid(0);
-        newAccount.setFeesTotal(30000);
-    }
-
-    public void registerTeacher() {
-        Teacher newAccount = new Teacher();
-
-        this.scanner.nextLine();
-
-        newAccount.setName(this.enterChar("First Name"));
-        newAccount.setId(1);
-        newAccount.setSecondName(this.enterChar("Second Name"));
-        newAccount.setSalary(this.enterInt("Enter you salary"));
-        newAccount.setSalaryEarned(this.enterInt("Enter salary earned"));
-    }
-
-    private String enterChar(String requiredField) {
-        System.out.println(
-                "************************************\n"
-                        + "|Enter your " + requiredField + ": \n"
-        );
-        return scanner.nextLine();
-    }
-
-    private int enterInt(String requiredField) {
-        System.out.println(
-                "************************************\n"
-                        + "|Enter your " + requiredField + ": \n"
-        );
-        return scanner.nextInt();
-    }
 }
