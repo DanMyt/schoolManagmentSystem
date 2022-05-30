@@ -1,16 +1,13 @@
 package view;
 
-import model.Student;
-import model.Teacher;
-
 import java.util.Scanner;
 
 
 public class View {
 
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     private final Register registerAccount = new Register();
-    private final Input input = new Input();
+    private final LogIn logInAccount = new LogIn();
 
     public void run() {
         while (true) {
@@ -53,8 +50,8 @@ public class View {
         char choice;
         try {
             choice = scanner.next().charAt(0);
-            if (choice == 'A' && teacherOrStudent == 'A') logInStudent();
-            else if(choice == 'A' && teacherOrStudent == 'B') logInTeacher();
+            if (choice == 'A' && teacherOrStudent == 'A') this.logInAccount.logInStudent();
+            else if(choice == 'A' && teacherOrStudent == 'B') this.logInAccount.logInTeacher();
             else if (choice == 'B' && teacherOrStudent == 'A') this.registerAccount.registerStudent();
             else if (choice == 'B' && teacherOrStudent == 'B') this.registerAccount.registerTeacher();
             else {
@@ -69,12 +66,6 @@ public class View {
 
     }
 
-    public void  logInStudent() {
 
-    }
-
-    public void logInTeacher() {
-
-    }
 
 }

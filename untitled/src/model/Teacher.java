@@ -1,7 +1,5 @@
 package model;
 
-import model.School;
-
 /**
  * This class is responsible for keeping the track
  * of teacher's name, id, salary
@@ -29,28 +27,50 @@ public class Teacher {
         this.salaryEarned = 0;
     }
 
+    /**
+     * To create a new Teacher object without initializing the values.
+     */
     public  Teacher() {}
 
     /**
-     * return the id of the teacher
-     * @return
+     *
+     * @return return the id of the teacher
      */
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    /**
+     * set id of the teacher
+     * @param id
+     */
+    public void setId(int id) { this.id = id; }
 
     /**
-     * return the name of the teacher
-     * @return
+     *
+     * @returnreturn the name of the teacher
      */
-
     public String getName() {
         return name;
     }
+
+    /**
+     *
+     * @return return the second name of the teacher
+     */
+    public String getSecondName() { return secondName; }
+
+    /**
+     * set name of the teacher
+     * @param name
+     */
+    public void setName(String name) {this.name = name;}
+
+    /**
+     * set second name of the teacher
+     * @param secondName
+     */
+    public void setSecondName(String secondName) {this.secondName = secondName;}
 
     /**
      *
@@ -77,14 +97,11 @@ public class Teacher {
         School.updateTotalMoneySpend(salaryEarned);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
+    /**
+     * set salary earned
+     * @param salaryEarned, salary earned for the whole working period
+     */
     public  void setSalaryEarned(int salaryEarned) {
         this.salaryEarned = salaryEarned;
     }

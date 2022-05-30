@@ -6,7 +6,7 @@ import model.Teacher;
 import java.util.Scanner;
 
 public class Register {
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     private final Input input = new Input();
     public void registerStudent() {
 
@@ -22,6 +22,7 @@ public class Register {
     }
 
     public void registerTeacher() {
+
         Teacher newAccount = new Teacher();
 
         this.scanner.nextLine();

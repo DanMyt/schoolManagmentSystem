@@ -21,7 +21,8 @@ public class Student {
      * Fees for every student is $30,000
      * Fees paid initially is 0
      * @param id id for student: unique value
-     * @param name name of student
+     * @param name name of the student
+     * @param secondName second name of the student
      */
 
     public Student(int id, String name,String secondName) {
@@ -32,8 +33,10 @@ public class Student {
 
     }
 
+    /**
+     * To create a new object without initializing the values.
+     */
     public Student() {}
-
 
 
     /**
@@ -56,16 +59,38 @@ public class Student {
     }
 
     /**
-     *
-     * @return name of the student
+     * set Id of the student.
+     * @param id
      */
-
     public void setId(int id) {
         this.id = id;
     }
+
+    /**
+     *
+     * @return name of the student
+     */
     public String getName() {
         return name;
     }
+
+    /**
+     * set the first name of the student
+     * @param name
+     */
+    public void setName(String name) { this.name = name; }
+
+    /**
+     * set the second name of the student
+     * @param secondName
+     */
+    public void setSecondName(String secondName) { this.secondName = secondName; }
+
+    /**
+     *
+     * @return second name of the student
+     */
+    public String getSecondName() { return secondName; }
 
 
     /**
@@ -96,7 +121,6 @@ public class Student {
 
     }
 
-
     /**
      *
      * @return the remaining fees
@@ -105,21 +129,17 @@ public class Student {
         return feesTotal - feesPaid;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    /**
+     * set already paid fees when registring
+     * @param feesPaid fees which has been already paid.
+     */
+    public void setFeesPaid(int feesPaid) { this.feesPaid = feesPaid;}
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public void setFeesPaid(int feesPaid) {
-        this.feesPaid = feesPaid;
-    }
-
-    public void setFeesTotal(int feesTotal) {
-        this.feesTotal = feesTotal;
-    }
+    /**
+     * set total fees when registring
+     * @param feesTotal total fees for semester
+     */
+    public void setFeesTotal(int feesTotal) { this.feesTotal = feesTotal; }
 
 
 
