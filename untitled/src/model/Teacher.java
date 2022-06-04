@@ -7,7 +7,8 @@ package model;
 
 public class Teacher {
 
-    private int id;
+    private Long id;
+    private String password;
     private String name;
     private String secondName;
     private int salary;
@@ -19,12 +20,13 @@ public class Teacher {
      * @param name name of the teacher
      * @param salary salary of the teacher
      */
-    public Teacher(int id, String name,String secondName, int salary) {
+    public Teacher(Long id, String name,String secondName, int salary, String password) {
         this.id = id;
         this.name = name;
         this.secondName = secondName;
         this.salary = salary;
         this.salaryEarned = 0;
+        this.password = password;
     }
 
     /**
@@ -36,7 +38,7 @@ public class Teacher {
      *
      * @return return the id of the teacher
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -44,7 +46,7 @@ public class Teacher {
      * set id of the teacher
      * @param id
      */
-    public void setId(int id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     /**
      *
@@ -71,6 +73,19 @@ public class Teacher {
      * @param secondName
      */
     public void setSecondName(String secondName) {this.secondName = secondName;}
+
+    /**
+     * Function to set a new password.
+     * @param password new password
+     */
+    public void setPassword(String password) { this.password = password; }
+
+
+    /**
+     *
+     * @return password
+     */
+    public String getPassword() {return password; }
 
     /**
      *

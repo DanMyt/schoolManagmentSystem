@@ -1,5 +1,8 @@
 package view;
 
+import model.Student;
+import model.Teacher;
+
 import java.util.Scanner;
 
 
@@ -19,8 +22,7 @@ public class View {
         System.out.println("*********************************\n" +
                 "Enter your choice\n" +
                 "A| Student\n" +
-                "B| Teacher\n" +
-                "*********************************\n"
+                "B| Teacher\n"
         );
 
         char choice;
@@ -41,11 +43,12 @@ public class View {
     }
 
    public void registerOrLogIn(char teacherOrStudent) {
+       this.scanner.nextLine();
         System.out.println("*********************************\n" +
                 "Enter your choice\n" +
                 "A| Log in\n" +
-                "B| Register\n" +
-                "*********************************\n");
+                "B| Register\n"
+        );
 
         char choice;
         try {
@@ -65,7 +68,6 @@ public class View {
         }
 
     }
-
 
 
 }

@@ -9,7 +9,8 @@ import model.School;
 
 public class Student {
 
-    private int id;
+    private Long id;
+    private String password;
     private String name;
     private String secondName;
 
@@ -25,10 +26,12 @@ public class Student {
      * @param secondName second name of the student
      */
 
-    public Student(int id, String name,String secondName) {
+    public Student(Long id, String name,String secondName, String password) {
         this.id = id;
         this.name = name;
         this.secondName = secondName;
+        this.password = password;
+
 
 
     }
@@ -54,7 +57,7 @@ public class Student {
      *
      * @return id of the student
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -62,7 +65,7 @@ public class Student {
      * set Id of the student.
      * @param id
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -93,6 +96,18 @@ public class Student {
     public String getSecondName() { return secondName; }
 
 
+    /**
+     * Function to set a new password.
+     * @param password new password
+     */
+    public void setPassword(String password) { this.password = password; }
+
+
+    /**
+     *
+     * @return password
+     */
+    public String getPassword() {return password; }
     /**
      *
      * @return paid fees of the student
