@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class LogIn {
 
     private final Scanner scanner = new Scanner(System.in);
-    private final AccountService accountService = new AccountService();
+    private final AccountService accountService = AccountService.getInstance();
     private final AccountMenu accountMenu = new AccountMenu();
     private final Input input = new Input();
 

@@ -7,6 +7,14 @@ import repository.AccountRepository;
 
 public class AccountService {
 
+    private static final AccountService service = new AccountService();
+
+    public static AccountService getInstance() {
+        return service;
+    }
+    private AccountService() {}
+
+
     private final AccountRepository accountRepository = new AccountRepository();
 
     public void registerStudent(Student newAccount) {

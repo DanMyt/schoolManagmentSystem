@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Register {
     private Scanner scanner = new Scanner(System.in);
     private final Input input = new Input();
-    private final AccountService accountService = new AccountService();
+    private final AccountService accountService = AccountService.getInstance();
     private final LogIn logIn = new LogIn();
 
 
