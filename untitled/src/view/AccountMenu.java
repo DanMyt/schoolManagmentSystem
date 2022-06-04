@@ -1,10 +1,12 @@
 package view;
 
 import java.util.Scanner;
+import model.Student;
 
 public class AccountMenu {
     private Scanner scanner = new Scanner(System.in);
-    public void accountMenuStudent() {
+    private Input input = new Input();
+    public void accountMenuStudent(Student student) {
         System.out.println("*********************************\n" +
                 "Enter your choice\n" +
                 "A| Show fees total\n" +
@@ -21,15 +23,19 @@ public class AccountMenu {
 
             switch (choice) {
                 case 'A':
-                    //getFeesTotal();
+                    System.out.println(student.getFeesTotal());
                     break;
                 case 'B':
+                    System.out.println(student.getFeesPaid());
                     break;
 
                 case 'C':
+                    System.out.println(student.getRemainingFees());
                     break;
 
                 case 'D':
+                    int value = this.input.enterInt("Enter the value to pay");
+                    student.payFees(value);
                     break;
 
                 case 'E':
@@ -37,12 +43,12 @@ public class AccountMenu {
                     break;
 
                 default:
-                    this.accountMenuStudent();
+                    this.accountMenuStudent(student);
             }
 
         } catch (Exception e) {
             scanner.nextLine();
-            this.accountMenuStudent();
+            this.accountMenuStudent(student);
         }
     }
 

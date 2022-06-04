@@ -7,6 +7,7 @@ import service.AccountService;
 import java.util.Scanner;
 
 public class Register {
+
     private Scanner scanner = new Scanner(System.in);
     private final Input input = new Input();
     private final AccountService accountService = AccountService.getInstance();
@@ -16,9 +17,11 @@ public class Register {
 
     public void registerStudent() {
 
+        //new Student model
         Student newAccount = new Student();
 
         System.out.println("***REGISTRATION***");
+
         newAccount.setName(this.input.enterChar("First Name"));
         newAccount.setId(10L);
         newAccount.setSecondName(this.input.enterChar("Second Name"));
@@ -34,9 +37,12 @@ public class Register {
     }
 
     public void registerTeacher() {
+
+        //new Teacher model
         Teacher newAccount = new Teacher();
 
         System.out.println("***REGISTRATION***");
+
         newAccount.setName(this.input.enterChar("First Name"));
         newAccount.setId(1L);
         newAccount.setSecondName(this.input.enterChar("Second Name"));

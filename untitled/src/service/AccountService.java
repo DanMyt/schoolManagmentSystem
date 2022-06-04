@@ -7,6 +7,10 @@ import repository.AccountRepository;
 
 public class AccountService {
 
+    /**
+     * Singleton pattern
+     * Ensures that only one objects of Account service exists
+     */
     private static final AccountService service = new AccountService();
 
     public static AccountService getInstance() {
@@ -15,7 +19,7 @@ public class AccountService {
     private AccountService() {}
 
 
-    private final AccountRepository accountRepository = new AccountRepository();
+    private final AccountRepository accountRepository = AccountRepository.getInstance();
 
     public void registerStudent(Student newAccount) {
 

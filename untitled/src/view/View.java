@@ -1,10 +1,6 @@
 package view;
 
-import model.Student;
-import model.Teacher;
-
 import java.util.Scanner;
-
 
 public class View {
 
