@@ -39,7 +39,7 @@ public class Register {
 
         this.accountService.registerStudent(newAccount);
 
-        school.addStudent(newAccount);
+
 
         this.logIn.logInStudent();
 
@@ -62,7 +62,7 @@ public class Register {
 
         this.accountService.registerTeacher(newAccount);
 
-        school.addTeacher(newAccount);
+
 
         this.logIn.logInTeacher();
     }

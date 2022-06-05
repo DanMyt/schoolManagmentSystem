@@ -24,7 +24,7 @@ public class AccountMenu {
      */
     public void accountMenuStudent(Student student) {
         System.out.println("*********************************\n" +
-                "Enter your choice\n" +
+                "Enter your choice: \n" +
                 "A| Show fees total\n" +
                 "B| Show paid fees\n" +
                 "C| Show remaining fees\n" +
@@ -83,7 +83,7 @@ public class AccountMenu {
      */
     public void accountMenuTeacher(Teacher teacher) {
         System.out.println("*********************************\n" +
-                "Enter your choice\n" +
+                "Enter your choice: \n" +
                 "A| Show my month salary\n" +
                 "B| Show my salary earned\n" +
                 "C| Change password\n" +
@@ -142,6 +142,14 @@ public class AccountMenu {
     }
 
     public void accountMenuSchool() {
-
+        System.out.println("*********************************\n" +
+                "Enter your choice: \n" +
+                "A| Show total money earned\n" +
+                "B| Show total money spend\n" +
+                "C| Show list of students\n" +
+                "D| Show list od teachers\n" +
+                "E| Pay the teacher\n" +
+                "F| Exit\n"
+        );
     }
 }
