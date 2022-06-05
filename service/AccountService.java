@@ -1,10 +1,13 @@
 package service;
 
-import model.School;
 import model.Student;
 import model.Teacher;
 
-import repository.AccountRepository;
+import repository.StudentAccountRepository;
+import repository.SchoolAccountRepository;
+import repository.TeacherAccountRepository;
+
+import java.util.List;
 
 public class AccountService {
 
@@ -17,7 +20,10 @@ public class AccountService {
         return service;
     }
     private AccountService() {}
-    private final AccountRepository accountRepository = AccountRepository.getInstance();
+    private final StudentAccountRepository studentAccountRepository = StudentAccountRepository.getInstance();
+
+    private final SchoolAccountRepository schoolAccountRepository = SchoolAccountRepository.getInstance();
+    private final TeacherAccountRepository teacherAccountRepository = TeacherAccountRepository.getInstance();
 
     /**
      * When registering If newAccount != null and ID != null and there is no account
@@ -27,32 +33,36 @@ public class AccountService {
     public void registerStudent(Student newAccount) {
         if (newAccount == null || newAccount.getId() == null) return;
         // can not insert new account with id that already exists
-        if (this.accountRepository.existsByIdStudent(newAccount.getId())) return;
+        if (this.studentAccountRepository.existsByIdStudent(newAccount.getId())) return;
 
-        this.accountRepository.addStudent(newAccount);
+        this.studentAccountRepository.addStudent(newAccount);
     }
 
     public void registerTeacher(Teacher newAccount) {
         if (newAccount == null || newAccount.getId() == null) return;
         // can not insert new account with id that already exists
-        if (this.accountRepository.existsByIdTeacher(newAccount.getId())) return;
+        if (this.teacherAccountRepository.existsByIdTeacher(newAccount.getId())) return;
 
-        this.accountRepository.addTeacher(newAccount);
+        this.teacherAccountRepository.addTeacher(newAccount);
     }
 
+    public List<Student> getListOfStudents(){
+        return this.studentAccountRepository.getListOfStudents();
+    }
+
+    public List<Teacher> getListOfTeachers() { return this.teacherAccountRepository.getListOfTeachers();}
+
     public Student findStudentByUsernamePassword(String username, String password) {
-        return this.accountRepository.findStudentByUsernamePassword(username, password);
+        return this.studentAccountRepository.findStudentByUsernamePassword(username, password);
 
     }
 
     public Teacher findTeacherByUsernamePassword(String username, String password) {
-        return this.accountRepository.findTeacherByUsernamePassword(username, password);
+        return this.teacherAccountRepository.findTeacherByUsernamePassword(username, password);
 
     }
 
     public boolean checkUsernamePassword(String username, String password) {
-        return this.accountRepository.checkUsernamePassword(username,password);
+        return this.schoolAccountRepository.checkUsernamePassword(username,password);
     }
-
-
 }

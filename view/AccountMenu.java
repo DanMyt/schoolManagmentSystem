@@ -1,8 +1,12 @@
 package view;
 
+import java.util.List;
 import java.util.Scanner;
+
+import model.School;
 import model.Student;
 import model.Teacher;
+import service.AccountService;
 
 public class AccountMenu {
 
@@ -17,6 +21,8 @@ public class AccountMenu {
     private AccountMenu() {}
     private final Scanner scanner = new Scanner(System.in);
     private final Input input = new Input();
+    private final School school = School.getInstance();
+    private final AccountService accountService = AccountService.getInstance();
 
     /**
      * Menu of the Student's account .
@@ -151,5 +157,73 @@ public class AccountMenu {
                 "E| Pay the teacher\n" +
                 "F| Exit\n"
         );
+
+        char choice;
+        try {
+
+            choice = scanner.next().charAt(0);
+
+            switch (choice) {
+                case 'A':
+                    //Show total money earned by the school (fees paid by students).
+                    System.out.println(school.getTotalMoneyEarned());
+                    this.accountMenuSchool();
+                    break;
+                case 'B':
+                    //Show total money spent by school (teachers salary).
+                    System.out.println(school.getTotalMoneySpend());
+                    this.accountMenuSchool();
+                    break;
+
+                case 'C':
+                    //Show list of students in school.
+                    this.showListOfStudents();
+                    this.accountMenuSchool();
+                    break;
+
+                case 'D':
+                    //Show list of teachers in school.
+                    this.showListOfTeachers();
+                    this.accountMenuSchool();
+                    break;
+
+                case 'E':
+                    this.accountMenuSchool();
+                    break;
+
+                case 'F':
+                    //Log out.
+                    System.out.println("You are logged out!");
+                    break;
+                default:
+                    this.accountMenuSchool();
+            }
+
+        } catch (Exception e) {
+            scanner.nextLine();
+            this.accountMenuSchool();
+        }
+    }
+
+    private void showListOfStudents(){
+        List<Student> listOfStudents = this.accountService.getListOfStudents();
+        if(listOfStudents.isEmpty()){
+            System.out.println("No students in school");
+            return;
+        }
+        for(Student account : listOfStudents) {
+            System.out.println(account.toString());
+        }
+    }
+
+    private  void showListOfTeachers() {
+        List<Teacher> listOfTeachers = this.accountService.getListOfTeachers();
+        if(listOfTeachers.isEmpty()){
+            System.out.println("No teachers in school");
+            return;
+        }
+        for(Teacher account : listOfTeachers) {
+            System.out.println(account.toString());
+        }
     }
 }
