@@ -1,8 +1,9 @@
 package service;
 
+import model.School;
 import model.Student;
-
 import model.Teacher;
+
 import repository.AccountRepository;
 
 public class AccountService {
@@ -47,6 +48,10 @@ public class AccountService {
     public Teacher findTeacherByUsernamePassword(String username, String password) {
         return this.accountRepository.findTeacherByUsernamePassword(username, password);
 
+    }
+
+    public boolean checkUsernamePassword(String username, String password) {
+        return this.accountRepository.checkUsernamePassword(username,password);
     }
 
 

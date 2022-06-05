@@ -8,7 +8,7 @@ public class AccountMenu {
 
     /**
      * Singleton pattern.
-     * Ensures that only one objects of Account service exists.
+     * Ensures that only one objects of Account menu exists.
      */
     private static final AccountMenu accountMenu = new AccountMenu();
     public static AccountMenu getInstance() {
@@ -139,5 +139,9 @@ public class AccountMenu {
             scanner.nextLine();
             this.accountMenuTeacher(teacher);
         }
+    }
+
+    public void accountMenuSchool() {
+
     }
 }

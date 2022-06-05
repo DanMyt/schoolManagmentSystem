@@ -8,22 +8,19 @@ import java.util.List;
  */
 public class School {
 
+    /**
+     * Singleton pattern.
+     * Ensures that only one objects of School exists.
+     */
+    private static final School school = new School();
+    public static School getInstance() {
+        return school;
+    }
+    private School() {}
     private List<Teacher> teachers;
     private List<Student> students;
     private static int totalMoneyEarned;
     private static int totalMoneySpend;
-
-    /**
-     * new school object is created
-     * @param teachers list of teachers in the school
-     * @param students list of students in the school
-     */
-    public School(List<Teacher> teachers, List<Student> students) {
-        this.teachers = teachers;
-        this.students = students;
-        totalMoneyEarned = 0;
-        totalMoneySpend = 0;
-    }
 
     /**
      *
@@ -43,8 +40,8 @@ public class School {
     }
 
     /**
-     * return the list of students in the school.
-     * @return
+     *
+     * @return return the list of students in the school.
      */
     public List<Student> getStudents() {
         return students;
@@ -69,7 +66,7 @@ public class School {
 
     /**
      * update the total money earned
-     * @param MoneyEarned
+     * @param MoneyEarned new amount of earned money
      */
     public static void updateTotalMoneyEarned(int MoneyEarned) {
         totalMoneyEarned += MoneyEarned;

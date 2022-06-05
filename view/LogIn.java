@@ -2,13 +2,14 @@ package view;
 
 import model.Student;
 import model.Teacher;
+
 import service.AccountService;
 
 public class LogIn {
 
     /**
      * Singleton pattern.
-     * Ensures that only one objects of Account service exists.
+     * Ensures that only one objects of LogIn exists.
      */
     private static final LogIn logIn = new LogIn();
 
@@ -22,6 +23,7 @@ public class LogIn {
 
     private Student activeStudent;
     private Teacher activeTeacher;
+    private boolean activeSchool;
 
 
     /**
@@ -64,6 +66,19 @@ public class LogIn {
         else {
             System.out.println("Account with this username or password does not exist.");
         }
+    }
 
+    public void logInSchoolAdministration() {
+        System.out.println("LOG IN AS A SCHOOL ADMINISTRATION");
+
+        final String username = this.input.enterChar("username");
+        final String password = this.input.enterChar("password");
+
+        this.activeSchool = this.accountService.checkUsernamePassword(username,password);
+
+        if(activeSchool == true) this.accountMenu.accountMenuSchool();
+        else {
+            System.out.println("Incorrect username or password.");
+        }
     }
 }

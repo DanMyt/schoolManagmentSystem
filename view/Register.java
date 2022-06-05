@@ -1,5 +1,6 @@
 package view;
 
+import model.School;
 import model.Student;
 import model.Teacher;
 import service.AccountService;
@@ -19,6 +20,7 @@ public class Register {
     private final Input input = new Input();
     private final AccountService accountService = AccountService.getInstance();
     private final LogIn logIn = LogIn.getInstance();
+    private final School school = School.getInstance();
 
 
     public void registerStudent() {
@@ -36,6 +38,8 @@ public class Register {
         newAccount.setFeesTotal(30000);
 
         this.accountService.registerStudent(newAccount);
+
+        school.addStudent(newAccount);
 
         this.logIn.logInStudent();
 
@@ -57,6 +61,8 @@ public class Register {
         newAccount.setSalaryEarned(this.input.enterInt("salary earned"));
 
         this.accountService.registerTeacher(newAccount);
+
+        school.addTeacher(newAccount);
 
         this.logIn.logInTeacher();
     }

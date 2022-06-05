@@ -29,9 +29,6 @@ public class Student {
         this.name = name;
         this.secondName = secondName;
         this.password = password;
-
-
-
     }
 
     /**
@@ -141,12 +138,5 @@ public class Student {
      * @param feesTotal total fees for semester
      */
     public void setFeesTotal(int feesTotal) { this.feesTotal = feesTotal; }
-
-
-
-
-
-
-
 
 }

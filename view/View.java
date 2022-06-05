@@ -25,13 +25,15 @@ public class View {
         System.out.println("*********************************\n" +
                 "Enter your choice: \n" +
                 "A| Student\n" +
-                "B| Teacher\n"
+                "B| Teacher\n" +
+                "C| School administration\n"
         );
 
         char choice;
         try {
             choice = scanner.next().charAt(0);
             if(choice == 'A') this.registerOrLogIn(choice);
+            else if (choice == 'C') {this.logInAccount.logInSchoolAdministration();}
             else if(choice == 'B') this.registerOrLogIn(choice);
             else {
                 System.out.println("Non valid input.");
