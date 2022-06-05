@@ -44,13 +44,13 @@ public class Teacher {
 
     /**
      * set id of the teacher
-     * @param id
+     * @param id - new id of a teacher.
      */
     public void setId(Long id) { this.id = id; }
 
     /**
      *
-     * @returnreturn the name of the teacher
+     * @return the name of the teacher
      */
     public String getName() {
         return name;
@@ -64,13 +64,13 @@ public class Teacher {
 
     /**
      * set name of the teacher
-     * @param name
+     * @param name - new name of a teacher.
      */
     public void setName(String name) {this.name = name;}
 
     /**
      * set second name of the teacher
-     * @param secondName
+     * @param secondName - new second name of a teacher.
      */
     public void setSecondName(String secondName) {this.secondName = secondName;}
 
@@ -96,16 +96,16 @@ public class Teacher {
     }
 
     /**
-     * Set the salary
-     * @param salary
+     * Set the month  salary of a teacher.
+     * @param salary - new month salary of a teacher.
      */
     public void setSalary(int salary) {
         this.salary = salary;
     }
 
     /**
-     * Adds to salary earn
-     * @param salary
+     * Adds to salary earned
+     * @param salary - month salary to receive.
      */
     public void receiveSalary(int salary) {
         salaryEarned += salary;

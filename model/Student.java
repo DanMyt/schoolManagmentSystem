@@ -1,7 +1,5 @@
 package model;
 
-import model.School;
-
 /**
  * This class is responsible for keep the
  * track of students
@@ -41,18 +39,6 @@ public class Student {
      */
     public Student() {}
 
-
-    /**
-     * Add the fees to the fees paid
-     * The school is going to receive the funds
-     * @param fees the fees that the student pays
-     */
-
-    public void updateFeesPaid(int fees) {
-        feesPaid += fees;
-    }
-
-
     /**
      *
      * @return id of the student
@@ -63,7 +49,7 @@ public class Student {
 
     /**
      * set Id of the student.
-     * @param id
+     * @param id - new ID of a student.
      */
     public void setId(Long id) {
         this.id = id;
@@ -79,13 +65,13 @@ public class Student {
 
     /**
      * set the first name of the student
-     * @param name
+     * @param name - new name of a student.
      */
     public void setName(String name) { this.name = name; }
 
     /**
      * set the second name of the student
-     * @param secondName
+     * @param secondName - new second name of a student.
      */
     public void setSecondName(String secondName) { this.secondName = secondName; }
 
@@ -128,7 +114,7 @@ public class Student {
 
     /** Pays the selected amount as fees
      * to school.
-     * @param fees
+     * @param fees - fees paid by student.
      */
     public void payFees(int fees) {
         feesPaid += fees;
@@ -145,13 +131,13 @@ public class Student {
     }
 
     /**
-     * set already paid fees when registring
+     * set already paid fees when registering
      * @param feesPaid fees which has been already paid.
      */
     public void setFeesPaid(int feesPaid) { this.feesPaid = feesPaid;}
 
     /**
-     * set total fees when registring
+     * set total fees when registering
      * @param feesTotal total fees for semester
      */
     public void setFeesTotal(int feesTotal) { this.feesTotal = feesTotal; }
