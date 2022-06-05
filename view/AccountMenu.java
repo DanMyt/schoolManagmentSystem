@@ -17,6 +17,11 @@ public class AccountMenu {
     private AccountMenu() {}
     private final Scanner scanner = new Scanner(System.in);
     private final Input input = new Input();
+
+    /**
+     * Menu of the Student's account .
+     * @param student - student account
+     */
     public void accountMenuStudent(Student student) {
         System.out.println("*********************************\n" +
                 "Enter your choice\n" +
@@ -34,26 +39,31 @@ public class AccountMenu {
 
             switch (choice) {
                 case 'A':
+                    //show total fees which student must pay in one school year
                     System.out.println(student.getFeesTotal());
                     this.accountMenuStudent(student);
                     break;
                 case 'B':
+                    //show fees that are already paid
                     System.out.println(student.getFeesPaid());
                     this.accountMenuStudent(student);
                     break;
 
                 case 'C':
+                    //show remaining fees
                     System.out.println(student.getRemainingFees());
                     this.accountMenuStudent(student);
                     break;
 
                 case 'D':
+                    //pay fees
                     int value = this.input.enterInt("Enter the value to pay");
                     student.payFees(value);
                     this.accountMenuStudent(student);
                     break;
 
                 case 'E':
+                    //log out
                     System.out.println("You are logged out!");
                     break;
 
@@ -67,6 +77,10 @@ public class AccountMenu {
         }
     }
 
+    /**
+     * Menu of the teachers account.
+     * @param teacher - teacher account
+     */
     public void accountMenuTeacher(Teacher teacher) {
         System.out.println("*********************************\n" +
                 "Enter your choice\n" +
@@ -84,21 +98,25 @@ public class AccountMenu {
 
             switch (choice) {
                 case 'A':
+                    //show month salary of the teacher
                     System.out.println(teacher.getSalary());
                     this.accountMenuTeacher(teacher);
                     break;
                 case 'B':
+                    //show salary earned for the whole working period
                     System.out.println(teacher.getSalaryEarned());
                     this.accountMenuTeacher(teacher);
                     break;
 
                 case 'C':
+                    //change password
                     String password = this.input.enterChar("Enter the new password");
                     teacher.setPassword(password);
                     this.accountMenuTeacher(teacher);
                     break;
 
                 case 'D':
+                    //show information about teacher
                     System.out.println("Your ID: " +teacher.getId());
                     System.out.println("Your name: " +teacher.getName());
                     System.out.println("Your second name: " +teacher.getSecondName());
@@ -109,6 +127,7 @@ public class AccountMenu {
                     break;
 
                 case 'E':
+                    //log out
                     System.out.println("You are logged out!");
                     break;
 

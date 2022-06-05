@@ -47,7 +47,11 @@ public class LogIn {
 
 
     /**
-     * Function to log in teacher
+     * Function to log in teacher.
+     * username - first name of the teacher.
+     * password - teacher sets the password.
+     * Function checks if account with this username
+     * and password exists and then teacher is logged in.
      */
     public void logInTeacher() {
         System.out.println("***LOG IN***");
