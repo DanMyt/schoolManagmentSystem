@@ -2,21 +2,21 @@ package view;
 
 import java.util.Scanner;
 import model.Student;
-import repository.AccountRepository;
+import model.Teacher;
 
 public class AccountMenu {
 
     /**
-     * Singleton pattern
-     * Ensures that only one objects of Account service exists
+     * Singleton pattern.
+     * Ensures that only one objects of Account service exists.
      */
     private static final AccountMenu accountMenu = new AccountMenu();
     public static AccountMenu getInstance() {
         return accountMenu;
     }
     private AccountMenu() {}
-    private Scanner scanner = new Scanner(System.in);
-    private Input input = new Input();
+    private final Scanner scanner = new Scanner(System.in);
+    private final Input input = new Input();
     public void accountMenuStudent(Student student) {
         System.out.println("*********************************\n" +
                 "Enter your choice\n" +
@@ -67,7 +67,7 @@ public class AccountMenu {
         }
     }
 
-    public void accountMenuTeacher() {
+    public void accountMenuTeacher(Teacher teacher) {
         System.out.println("*********************************\n" +
                 "Enter your choice\n" +
                 "A| Show my month salary\n" +
@@ -84,15 +84,28 @@ public class AccountMenu {
 
             switch (choice) {
                 case 'A':
-                    //getFeesTotal();
+                    System.out.println(teacher.getSalary());
+                    this.accountMenuTeacher(teacher);
                     break;
                 case 'B':
+                    System.out.println(teacher.getSalaryEarned());
+                    this.accountMenuTeacher(teacher);
                     break;
 
                 case 'C':
+                    String password = this.input.enterChar("Enter the new password");
+                    teacher.setPassword(password);
+                    this.accountMenuTeacher(teacher);
                     break;
 
                 case 'D':
+                    System.out.println("Your ID: " +teacher.getId());
+                    System.out.println("Your name: " +teacher.getName());
+                    System.out.println("Your second name: " +teacher.getSecondName());
+                    System.out.println("Your password: " +teacher.getPassword());
+                    System.out.println("Your month salary: " +teacher.getSalary());
+                    System.out.println("Your salary earned: " +teacher.getSalaryEarned());
+                    this.accountMenuTeacher(teacher);
                     break;
 
                 case 'E':
@@ -100,12 +113,12 @@ public class AccountMenu {
                     break;
 
                 default:
-                    this.accountMenuTeacher();
+                    this.accountMenuTeacher(teacher);
             }
 
         } catch (Exception e) {
             scanner.nextLine();
-            this.accountMenuTeacher();
+            this.accountMenuTeacher(teacher);
         }
     }
 }

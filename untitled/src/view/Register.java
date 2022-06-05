@@ -4,13 +4,11 @@ import model.Student;
 import model.Teacher;
 import service.AccountService;
 
-import java.util.Scanner;
-
 public class Register {
 
     /**
-     * Singleton pattern
-     * Ensures that only one objects of Account service exists
+     * Singleton pattern.
+     * Ensures that only one objects of Account service exists.
      */
     private static final Register register = new Register();
 
@@ -18,8 +16,6 @@ public class Register {
         return register;
     }
     private Register() {}
-
-    private Scanner scanner = new Scanner(System.in);
     private final Input input = new Input();
     private final AccountService accountService = AccountService.getInstance();
     private final LogIn logIn = LogIn.getInstance();
@@ -57,7 +53,11 @@ public class Register {
         newAccount.setId(1L);
         newAccount.setSecondName(this.input.enterChar("Second Name"));
         newAccount.setPassword(this.input.enterChar("password"));
-        newAccount.setSalary(this.input.enterInt("Enter you salary"));
-        newAccount.setSalaryEarned(this.input.enterInt("Enter salary earned"));
+        newAccount.setSalary(this.input.enterInt("salary"));
+        newAccount.setSalaryEarned(this.input.enterInt("salary earned"));
+
+        this.accountService.registerTeacher(newAccount);
+
+        this.logIn.logInTeacher();
     }
 }

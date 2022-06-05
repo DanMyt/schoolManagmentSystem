@@ -121,5 +121,12 @@ public class Teacher {
         this.salaryEarned = salaryEarned;
     }
 
+    /**
+     * @return salary earned
+     */
+    public  int getSalaryEarned() {
+        return salaryEarned;
+    }
+
 
 }

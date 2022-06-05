@@ -11,8 +11,8 @@ import java.util.Objects;
 public class AccountRepository {
 
     /**
-     * Singleton pattern
-     * Ensures that only one objects of Account service exists
+     * Singleton pattern.
+     * Ensures that only one objects of Account service exists.
      */
     private static final AccountRepository repository = new AccountRepository();
 
@@ -32,13 +32,15 @@ public class AccountRepository {
     private final List<Teacher> teachersAccounts = new ArrayList<>();
 
     /**
-     * Adds a new account to the list of students accounts
+     * Adds a new account to the list of students accounts.
+     * Student's account is successfully registered.
      * @param newAccount account of the new student
      */
     public void addStudent(Student newAccount) { this.studentsAccounts.add(newAccount);}
 
     /**
-     * Adds a new account to the list of teachers accounts
+     * Adds a new account to the list of teachers accounts.
+     * Teacher's account is successfully registered.
      * @param newAccount account of the new teacher
      */
     public void addTeacher(Teacher newAccount) { this.teachersAccounts.add(newAccount);}
@@ -53,6 +55,16 @@ public class AccountRepository {
 
     public Student findStudentByUsernamePassword(String username, String password) {
         for(Student account : this.studentsAccounts) {
+            if(Objects.equals(username, account.getName()) &&  Objects.equals(password, account.getPassword())) {
+                return account;
+
+            }
+        }
+        return null;
+    }
+
+    public Teacher findTeacherByUsernamePassword(String username, String password) {
+        for(Teacher account : this.teachersAccounts) {
             if(Objects.equals(username, account.getName()) &&  Objects.equals(password, account.getPassword())) {
                 return account;
 
