@@ -10,7 +10,10 @@ import java.util.Objects;
 
 public class AccountRepository {
 
-    // Singleton pattern
+    /**
+     * Singleton pattern
+     * Ensures that only one objects of Account service exists
+     */
     private static final AccountRepository repository = new AccountRepository();
 
     public static AccountRepository getInstance() {

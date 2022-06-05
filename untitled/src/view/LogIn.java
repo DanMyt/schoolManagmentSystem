@@ -8,9 +8,20 @@ import java.util.Scanner;
 
 public class LogIn {
 
+    /**
+     * Singleton pattern
+     * Ensures that only one objects of Account service exists
+     */
+    private static final LogIn logIn = new LogIn();
+
+    public static LogIn getInstance() {
+        return logIn;
+    }
+    private LogIn() {}
+
     private final Scanner scanner = new Scanner(System.in);
     private final AccountService accountService = AccountService.getInstance();
-    private final AccountMenu accountMenu = new AccountMenu();
+    private final AccountMenu accountMenu = AccountMenu.getInstance();
     private final Input input = new Input();
 
     private Student activeStudent;
@@ -34,6 +45,9 @@ public class LogIn {
         this.activeStudent = this.accountService.findStudentByUsernamePassword(username,password);
 
         if(activeStudent!= null) this.accountMenu.accountMenuStudent(activeStudent);
+        else {
+            System.out.println("Account with this username or password does not exist.");
+        }
 
 
     }

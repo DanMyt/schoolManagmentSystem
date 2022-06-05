@@ -2,8 +2,19 @@ package view;
 
 import java.util.Scanner;
 import model.Student;
+import repository.AccountRepository;
 
 public class AccountMenu {
+
+    /**
+     * Singleton pattern
+     * Ensures that only one objects of Account service exists
+     */
+    private static final AccountMenu accountMenu = new AccountMenu();
+    public static AccountMenu getInstance() {
+        return accountMenu;
+    }
+    private AccountMenu() {}
     private Scanner scanner = new Scanner(System.in);
     private Input input = new Input();
     public void accountMenuStudent(Student student) {
@@ -24,18 +35,22 @@ public class AccountMenu {
             switch (choice) {
                 case 'A':
                     System.out.println(student.getFeesTotal());
+                    this.accountMenuStudent(student);
                     break;
                 case 'B':
                     System.out.println(student.getFeesPaid());
+                    this.accountMenuStudent(student);
                     break;
 
                 case 'C':
                     System.out.println(student.getRemainingFees());
+                    this.accountMenuStudent(student);
                     break;
 
                 case 'D':
                     int value = this.input.enterInt("Enter the value to pay");
                     student.payFees(value);
+                    this.accountMenuStudent(student);
                     break;
 
                 case 'E':

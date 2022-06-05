@@ -8,11 +8,21 @@ import java.util.Scanner;
 
 public class Register {
 
+    /**
+     * Singleton pattern
+     * Ensures that only one objects of Account service exists
+     */
+    private static final Register register = new Register();
+
+    public static Register getInstance() {
+        return register;
+    }
+    private Register() {}
+
     private Scanner scanner = new Scanner(System.in);
     private final Input input = new Input();
     private final AccountService accountService = AccountService.getInstance();
-    private final LogIn logIn = new LogIn();
-
+    private final LogIn logIn = LogIn.getInstance();
 
 
     public void registerStudent() {
