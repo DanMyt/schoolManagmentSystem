@@ -21,6 +21,7 @@ public class Teacher {
     private String secondName;
     private int salary;
     private int salaryEarned;
+    private final School school = School.getInstance();
 
 
 
@@ -42,6 +43,6 @@ public class Teacher {
      */
     public void receiveSalary(int salary) {
         salaryEarned += salary;
-        School.updateTotalMoneySpend(salaryEarned);
+        this.school.updateTotalMoneySpend(salaryEarned);
     }
 }

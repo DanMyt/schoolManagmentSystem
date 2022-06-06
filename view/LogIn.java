@@ -72,6 +72,16 @@ public class LogIn {
         }
     }
 
+    /**
+     * Function to log in School Administration
+     * School Admin. can only be LOG IN, it can not be
+     * registered.
+     * User must enter correct username and password which are
+     * defined in SchoolAccountRepository.
+     * If user entered correct Login data, then global variable
+     * activeSchool becomes true and is displayed School Menu (function
+     * accountMenuSchool).
+     */
     public void logInSchoolAdministration() {
         System.out.println("LOG IN AS A SCHOOL ADMINISTRATION");
 

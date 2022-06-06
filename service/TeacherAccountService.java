@@ -49,4 +49,22 @@ public class TeacherAccountService {
     public Teacher findTeacherByUsernamePassword(String username, String password) {
         return this.teacherAccountRepository.findTeacherByUsernamePassword(username, password);
     }
+
+    /**
+     * Find exact teacher account, when school is paying salary to teacher.
+     * @param name - name of the wanted teacher.
+     * @param secondName - second name of the wanted teacher.
+     * @return teacher account.
+     */
+    public Teacher findTeacherByNameSecondName(String name, String secondName) {
+        return this.teacherAccountRepository.findTeacherByNameSecondName(name,secondName);
+    }
+
+    /**
+     *
+     * @return last ID of teacher
+     */
+    public Long getLastId() {
+        return this.teacherAccountRepository.getLastId();
+    }
 }

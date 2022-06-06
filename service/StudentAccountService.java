@@ -52,4 +52,12 @@ public class StudentAccountService {
     public Student findStudentByUsernamePassword(String username, String password) {
         return this.studentAccountRepository.findStudentByUsernamePassword(username, password);
     }
+
+    /**
+     *
+     * @return last ID of student
+     */
+    public Long getLastId() {
+        return this.studentAccountRepository.getLastId();
+    }
 }

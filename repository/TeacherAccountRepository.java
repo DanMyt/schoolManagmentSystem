@@ -1,8 +1,10 @@
 package repository;
 
+import model.Student;
 import model.Teacher;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +51,7 @@ public class TeacherAccountRepository {
     }
 
     /**
-     * LOG IN TEACHER
+     * WHEN LOG IN TEACHER
      * Function iterate trough list of school teachers and return account when
      * finds required account.
      * Else it returns null.
@@ -70,5 +72,26 @@ public class TeacherAccountRepository {
          }
          }
          return null;**/
+    }
+
+    /**
+     * Function iterate trough list of teachers and is searching for teacher with:
+     * @param name - name of wanted teacher
+     * @param secondName - second name of wanted teacher
+     * @return teacher account or null
+     */
+    public Teacher findTeacherByNameSecondName(String name, String secondName) {
+        return this.teachersAccounts.stream()
+                .filter(teacher -> Objects.equals(name,teacher.getName()) && Objects.equals(secondName,teacher.getSecondName()))
+                .findFirst().orElse(null);
+    }
+
+    /**
+     *
+     * @return 0L when list of teachers is empty or last Id of teacher.
+     */
+    public Long getLastId() {
+        if(teachersAccounts.isEmpty()) return 0L;
+        return teachersAccounts.stream().max(Comparator.comparing(Teacher::getId)).get().getId();
     }
 }

@@ -3,6 +3,7 @@ package repository;
 import model.Student;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -66,5 +67,14 @@ public class StudentAccountRepository {
         return this.studentsAccounts.stream()
                 .filter(student -> Objects.equals(username, student.getName()) &&  Objects.equals(password, student.getPassword()))
                 .findFirst().orElse(null);
+    }
+
+    /**
+     *
+     * @return 0L when list of students is empty or last Id of student.
+     */
+    public Long getLastId() {
+        if(studentsAccounts.isEmpty()) return 0L;
+        return studentsAccounts.stream().max(Comparator.comparing(Student::getId)).get().getId();
     }
 }

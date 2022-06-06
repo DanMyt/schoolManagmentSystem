@@ -22,7 +22,7 @@ public class School {
      * update the total money earned
      * @param MoneyEarned new amount of earned money
      */
-    public static void updateTotalMoneyEarned(int MoneyEarned) {
+    public void updateTotalMoneyEarned(int MoneyEarned) {
         totalMoneyEarned += MoneyEarned;
     }
 
@@ -32,8 +32,9 @@ public class School {
      * given to teachers.
      * @param MoneySpend the money spent by the school.
      */
-    public static void updateTotalMoneySpend(int MoneySpend) {
+    public void updateTotalMoneySpend(int MoneySpend) {
         totalMoneyEarned -= MoneySpend;
+        totalMoneySpend += MoneySpend;
     }
 
 
@@ -41,9 +42,7 @@ public class School {
      *
      * @return Total money earned by school.
      */
-    public int getTotalMoneyEarned() {
-        return totalMoneyEarned;
-    }
+    public int getTotalMoneyEarned() { return totalMoneyEarned;}
 
     /**
      *

@@ -18,6 +18,7 @@ public class Student {
 
     private int feesPaid;
     private int feesTotal;
+    private final School school = School.getInstance();
 
 
     @Override
@@ -37,7 +38,7 @@ public class Student {
      */
     public void payFees(int fees) {
         feesPaid += fees;
-        School.updateTotalMoneyEarned(feesPaid);
+        this.school.updateTotalMoneyEarned(feesPaid);
     }
 
     /**

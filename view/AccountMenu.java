@@ -149,6 +149,9 @@ public class AccountMenu {
         }
     }
 
+    /**
+     * Menu of the school account.
+     */
     public void accountMenuSchool() {
         System.out.println("*********************************\n" +
                 "Enter your choice: \n" +
@@ -190,6 +193,7 @@ public class AccountMenu {
                     break;
 
                 case 'E':
+                    this.payTeacher();
                     this.accountMenuSchool();
                     break;
 
@@ -226,6 +230,37 @@ public class AccountMenu {
         }
         for(Teacher account : listOfTeachers) {
             System.out.println(account.toString());
+        }
+    }
+
+    /**
+     * Function to pay month salary to teacher.
+     */
+    private void payTeacher() {
+
+        final String name = this.input.enterCharUser("name");
+        final String secondName = this.input.enterCharUser("second name");
+
+        Teacher teacherToPay = this.teacherAccountService.findTeacherByNameSecondName(name, secondName);
+
+        if (teacherToPay != null) {
+
+            final int payment = this.input.enterIntUser("salary");
+            teacherToPay.receiveSalary(payment);
+            school.updateTotalMoneySpend(payment);
+
+            System.out.println("Teacher" +
+                    name +
+                    " " +
+                    secondName +
+                    "has received salary" +
+                    " " +
+                    payment +
+                    "."
+            );
+
+        } else {
+            System.out.println("Account with this name or second name does not exists.");
         }
     }
 }
