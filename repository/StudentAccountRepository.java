@@ -6,16 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * STUDENT ACCOUNT REPOSITORY
+ */
 public class StudentAccountRepository {
 
     /**
      * Singleton pattern.
      * Ensures that only one objects of Student account repository exists.
      */
-    private static final StudentAccountRepository repository = new StudentAccountRepository();
+    private static final StudentAccountRepository studentRepository = new StudentAccountRepository();
 
     public static StudentAccountRepository getInstance() {
-        return repository;
+        return studentRepository;
     }
     private StudentAccountRepository() {}
 
@@ -44,6 +47,7 @@ public class StudentAccountRepository {
     public List<Student> getListOfStudents() {
         return new ArrayList<>(this.studentsAccounts);
     }
+
 
     public boolean existsByIdStudent(Long id) {
         return this.studentsAccounts.stream().anyMatch(a -> Objects.equals(a.getId(), id));

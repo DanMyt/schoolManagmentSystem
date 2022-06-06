@@ -3,7 +3,8 @@ package view;
 import model.School;
 import model.Student;
 import model.Teacher;
-import service.AccountService;
+import service.StudentAccountService;
+import service.TeacherAccountService;
 
 public class Register {
 
@@ -18,7 +19,8 @@ public class Register {
     }
     private Register() {}
     private final Input input = new Input();
-    private final AccountService accountService = AccountService.getInstance();
+    private final StudentAccountService studentAccountService = StudentAccountService.getInstance();
+    private final TeacherAccountService teacherAccountService = TeacherAccountService.getInstance();
     private final LogIn logIn = LogIn.getInstance();
     private final School school = School.getInstance();
 
@@ -37,7 +39,7 @@ public class Register {
         newAccount.setFeesPaid(0);
         newAccount.setFeesTotal(30000);
 
-        this.accountService.registerStudent(newAccount);
+        this.studentAccountService.registerStudent(newAccount);
 
 
 
@@ -60,7 +62,7 @@ public class Register {
         newAccount.setSalary(this.input.enterInt("salary"));
         newAccount.setSalaryEarned(this.input.enterInt("salary earned"));
 
-        this.accountService.registerTeacher(newAccount);
+        this.teacherAccountService.registerTeacher(newAccount);
 
 
 

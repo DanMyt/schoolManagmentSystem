@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * TEACHER ACCOUNT REPOSITORY
+ */
 public class TeacherAccountRepository {
 
     /**
@@ -13,7 +16,6 @@ public class TeacherAccountRepository {
      * Ensures that only one objects of Teacher account repository exists.
      */
     private static final TeacherAccountRepository teacherRepository = new TeacherAccountRepository();
-
     public static TeacherAccountRepository getInstance() {
         return teacherRepository;
     }

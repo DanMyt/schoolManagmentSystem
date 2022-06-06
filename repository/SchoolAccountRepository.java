@@ -2,6 +2,9 @@ package repository;
 
 import java.util.Objects;
 
+/**
+ * SCHOOL ADMINISTRATION ACCOUNT REPOSITORY
+ */
 public class SchoolAccountRepository {
 
     /**
@@ -15,14 +18,14 @@ public class SchoolAccountRepository {
     }
     private SchoolAccountRepository() {}
 
-    //Username for school administration account.
+    //Correct username for school administration account.
     private final String schoolUsername = "school";
 
-    //Password for school administration account.
+    //Correct password for school administration account.
     private final String schoolPassword = "admin";
 
     /**
-     * SCHOOL ADMINISTRATION LOG IN
+     * SCHOOL ADMINISTRATION LOG IN CHECK
      * function checks if user entered valid username and password.
      * @param username entered username from user.
      * Correct username is same as global variable SchoolUsername.

@@ -3,7 +3,9 @@ package view;
 import model.Student;
 import model.Teacher;
 
-import service.AccountService;
+import service.StudentAccountService;
+import service.TeacherAccountService;
+import service.SchoolAccountService;
 
 public class LogIn {
 
@@ -17,7 +19,9 @@ public class LogIn {
         return logIn;
     }
     private LogIn() {}
-    private final AccountService accountService = AccountService.getInstance();
+    private final StudentAccountService studentAccountService = StudentAccountService.getInstance();
+    private final TeacherAccountService teacherAccountService = TeacherAccountService.getInstance();
+    private final SchoolAccountService schoolAccountService = SchoolAccountService.getInstance();
     private final AccountMenu accountMenu = AccountMenu.getInstance();
     private final Input input = new Input();
 
@@ -39,7 +43,7 @@ public class LogIn {
         final String username = this.input.enterChar("First name");
         final String password = this.input.enterChar("password");
 
-        this.activeStudent = this.accountService.findStudentByUsernamePassword(username,password);
+        this.activeStudent = this.studentAccountService.findStudentByUsernamePassword(username,password);
 
         if(activeStudent!= null) this.accountMenu.accountMenuStudent(activeStudent);
         else {
@@ -61,7 +65,7 @@ public class LogIn {
         final String username = this.input.enterChar("First name");
         final String password = this.input.enterChar("password");
 
-        this.activeTeacher = this.accountService.findTeacherByUsernamePassword(username,password);
+        this.activeTeacher = this.teacherAccountService.findTeacherByUsernamePassword(username,password);
         if(activeTeacher != null) this.accountMenu.accountMenuTeacher(activeTeacher);
         else {
             System.out.println("Account with this username or password does not exist.");
@@ -74,9 +78,9 @@ public class LogIn {
         final String username = this.input.enterChar("username");
         final String password = this.input.enterChar("password");
 
-        this.activeSchool = this.accountService.checkUsernamePassword(username,password);
+        this.activeSchool = this.schoolAccountService.checkUsernamePassword(username,password);
 
-        if(activeSchool == true) this.accountMenu.accountMenuSchool();
+        if(activeSchool) this.accountMenu.accountMenuSchool();
         else {
             System.out.println("Incorrect username or password.");
         }

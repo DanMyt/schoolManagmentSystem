@@ -6,7 +6,8 @@ import java.util.Scanner;
 import model.School;
 import model.Student;
 import model.Teacher;
-import service.AccountService;
+import service.StudentAccountService;
+import service.TeacherAccountService;
 
 public class AccountMenu {
 
@@ -22,7 +23,8 @@ public class AccountMenu {
     private final Scanner scanner = new Scanner(System.in);
     private final Input input = new Input();
     private final School school = School.getInstance();
-    private final AccountService accountService = AccountService.getInstance();
+    private final StudentAccountService studentAccountService = StudentAccountService.getInstance();
+    private final TeacherAccountService teacherAccountService = TeacherAccountService.getInstance();
 
     /**
      * Menu of the Student's account .
@@ -206,7 +208,7 @@ public class AccountMenu {
     }
 
     private void showListOfStudents(){
-        List<Student> listOfStudents = this.accountService.getListOfStudents();
+        List<Student> listOfStudents = this.studentAccountService.getListOfStudents();
         if(listOfStudents.isEmpty()){
             System.out.println("No students in school");
             return;
@@ -217,7 +219,7 @@ public class AccountMenu {
     }
 
     private  void showListOfTeachers() {
-        List<Teacher> listOfTeachers = this.accountService.getListOfTeachers();
+        List<Teacher> listOfTeachers = this.teacherAccountService.getListOfTeachers();
         if(listOfTeachers.isEmpty()){
             System.out.println("No teachers in school");
             return;
