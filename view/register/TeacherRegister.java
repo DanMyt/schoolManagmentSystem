@@ -12,7 +12,6 @@ public class TeacherRegister {
      * Ensures that only one objects of TeacherRegister exists.
      */
     private static final TeacherRegister TEACHER_REGISTER = new TeacherRegister();
-
     public static TeacherRegister getInstance() {
         return TEACHER_REGISTER;
     }

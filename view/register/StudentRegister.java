@@ -12,14 +12,12 @@ public class StudentRegister {
      * Ensures that only one objects of StudentRegister exists.
      */
     private static final StudentRegister STUDENT_REGISTER = new StudentRegister();
-
     public static StudentRegister getInstance() {
         return STUDENT_REGISTER;
     }
     private StudentRegister() {}
     private final Input input = new Input();
     private final StudentAccountService studentAccountService = StudentAccountService.getInstance();
-
     private final StudentLogIn studentLogIn = StudentLogIn.getInstance();
 
     /**
