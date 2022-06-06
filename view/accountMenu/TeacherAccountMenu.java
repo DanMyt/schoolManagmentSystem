@@ -3,6 +3,7 @@ package view.accountMenu;
 import model.Teacher;
 import view.Input;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class TeacherAccountMenu {
@@ -48,8 +49,7 @@ public class TeacherAccountMenu {
 
                 case 'C':
                     //change password
-                    String password = this.input.enterChar("Enter the new password");
-                    teacher.setPassword(password);
+                    this.ChangePassword(teacher);
                     this.accountMenuTeacher(teacher);
                     break;
 
@@ -76,6 +76,20 @@ public class TeacherAccountMenu {
         } catch (Exception e) {
             scanner.nextLine();
             this.accountMenuTeacher(teacher);
+        }
+    }
+
+    /**
+     * Function to change teachers password. New password can not be the same
+     * as an old password.
+     * @param teacher - user which wants to change password.
+     */
+    public void ChangePassword(Teacher teacher) {
+        String password = this.input.enterChar("new password");
+        if(Objects.equals(password,teacher.getPassword())) {
+            System.out.println("New password can not be the same as an old password.");
+        } else {
+            teacher.setPassword(password);
         }
     }
 }

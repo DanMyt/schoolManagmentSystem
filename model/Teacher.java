@@ -24,7 +24,6 @@ public class Teacher {
     private final School school = School.getInstance();
 
 
-
     @Override
     public String toString() {
         return "Teacher{" +
@@ -35,7 +34,6 @@ public class Teacher {
                 ", Salary earned = " + salaryEarned +
                 '}';
     }
-
 
     /**
      * Adds to salary earned
