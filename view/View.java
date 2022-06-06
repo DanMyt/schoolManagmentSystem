@@ -1,19 +1,27 @@
 package view;
 
+import view.logIn.SchoolAdminLogIn;
+import view.logIn.StudentLogIn;
+import view.logIn.TeacherLogIn;
+import view.register.StudentRegister;
+import view.register.TeacherRegister;
+
 import java.util.Scanner;
 
 public class View {
 
     private final Scanner scanner = new Scanner(System.in);
-    private final Register registerAccount = Register.getInstance();
-    private final LogIn logInAccount = LogIn.getInstance();
+    private final StudentRegister studentRegisterAccount = StudentRegister.getInstance();
+    private final TeacherRegister teacherRegisterAccount = TeacherRegister.getInstance();
+    private final StudentLogIn studentLogInAccount = StudentLogIn.getInstance();
+    private final SchoolAdminLogIn schoolLogInAccount = SchoolAdminLogIn.getInstance();
+    private final TeacherLogIn teacherLogInAccount = TeacherLogIn.getInstance();
 
     public void run() {
         while (true) {
             this.loginScreen();
         }
     }
-
 
     /**
      * Initial screen where the user chooses whether he is a
@@ -33,7 +41,7 @@ public class View {
         try {
             choice = scanner.next().charAt(0);
             if(choice == 'A') this.registerOrLogIn(choice);
-            else if (choice == 'C') {this.logInAccount.logInSchoolAdministration();}
+            else if (choice == 'C') {this.schoolLogInAccount.logInSchoolAdministration();}
             else if(choice == 'B') this.registerOrLogIn(choice);
             else {
                 System.out.println("Non valid input.");
@@ -62,10 +70,10 @@ public class View {
         char choice;
         try {
             choice = scanner.next().charAt(0);
-            if (choice == 'A' && teacherOrStudent == 'A') this.logInAccount.logInStudent();
-            else if(choice == 'A' && teacherOrStudent == 'B') this.logInAccount.logInTeacher();
-            else if (choice == 'B' && teacherOrStudent == 'A') this.registerAccount.registerStudent();
-            else if (choice == 'B' && teacherOrStudent == 'B') this.registerAccount.registerTeacher();
+            if (choice == 'A' && teacherOrStudent == 'A') this.studentLogInAccount.logInStudent();
+            else if(choice == 'A' && teacherOrStudent == 'B') this.teacherLogInAccount.logInTeacher();
+            else if (choice == 'B' && teacherOrStudent == 'A') this.studentRegisterAccount.registerStudent();
+            else if (choice == 'B' && teacherOrStudent == 'B') this.teacherRegisterAccount.registerTeacher();
             else {
                 System.out.println("Non valid input.");
                 this.registerOrLogIn(teacherOrStudent);
@@ -75,8 +83,5 @@ public class View {
             scanner.nextLine();
             this.registerOrLogIn(teacherOrStudent);
         }
-
     }
-
-
 }
