@@ -2,6 +2,7 @@ package repository;
 
 import model.Student;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -12,6 +13,8 @@ import java.util.Objects;
  */
 public class StudentAccountRepository {
 
+    private Connection connection;
+
     /**
      * Singleton pattern.
      * Ensures that only one objects of Student account repository exists.
@@ -21,7 +24,14 @@ public class StudentAccountRepository {
     public static StudentAccountRepository getInstance() {
         return studentRepository;
     }
-    private StudentAccountRepository() {}
+    private StudentAccountRepository() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            this.connection = DriverManager.getConnection(Config.DB_URL, Config.DB_USER, Config.DB_PASSWORD);
+        } catch (SQLException | ClassNotFoundException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 
     /**
      * List of students of school
@@ -64,9 +74,31 @@ public class StudentAccountRepository {
      * @return account or null.
      */
     public Student findStudentByUsernamePassword(String username, String password) {
-        return this.studentsAccounts.stream()
-                .filter(student -> Objects.equals(username, student.getName()) &&  Objects.equals(password, student.getPassword()))
-                .findFirst().orElse(null);
+
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM student WHERE student.name = ? AND student.password = ?");
+            statement.setString(1, username);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return new Student(
+                        resultSet.getLong(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getInt(5),
+                        resultSet.getInt(6)
+                );
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            return null;
+        }
+
+//        return this.studentsAccounts.stream()
+//                .filter(student -> Objects.equals(username, student.getName()) &&  Objects.equals(password, student.getPassword()))
+//                .findFirst().orElse(null);
     }
 
     /**

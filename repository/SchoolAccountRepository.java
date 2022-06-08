@@ -1,11 +1,16 @@
 package repository;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Objects;
 
 /**
  * SCHOOL ADMINISTRATION ACCOUNT REPOSITORY
  */
 public class SchoolAccountRepository {
+
+    private Connection connection;
 
     /**
      * Singleton pattern.
@@ -16,7 +21,14 @@ public class SchoolAccountRepository {
     public static SchoolAccountRepository getInstance() {
         return schoolRepository;
     }
-    private SchoolAccountRepository() {}
+    private SchoolAccountRepository() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            this.connection = DriverManager.getConnection(Config.DB_URL, Config.DB_USER, Config.DB_PASSWORD);
+        } catch (SQLException | ClassNotFoundException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 
     //Correct username for school administration account.
     private final String schoolUsername = "school";
